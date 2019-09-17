@@ -37,6 +37,5 @@ public class StringMethods {
 			
 			System.out.println("Lower case: " + str.toLowerCase());
 			System.out.println("Upper case: " + str2.toUpperCase());
-			
 		}
 }

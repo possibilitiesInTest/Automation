@@ -8,10 +8,10 @@ public class ClassDemo {
 		System.out.println(bmw.getMake());
 	
 		Car benz = new Car();
-		benz.setModel("C300");
-		System.out.println(benz.getModel());
-		
-		benz.setYear(1880);
-		System.out.println(benz.getYear());
+//		benz.setModel("C300");
+//		System.out.println(benz.getModel());
+//		
+//		benz.setYear(1880);
+//		System.out.println(benz.getYear());
 	}
 }

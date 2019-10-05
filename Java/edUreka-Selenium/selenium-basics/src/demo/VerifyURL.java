@@ -9,6 +9,9 @@ public class VerifyURL {
 		// Open the browser
 		ChromeDriver driver = new ChromeDriver();
 		
+		// Maximize the browser
+		driver.manage().window().maximize();
+		
 		// Navigate to the application
 		driver.get("https://www.linkedin.com");
 		

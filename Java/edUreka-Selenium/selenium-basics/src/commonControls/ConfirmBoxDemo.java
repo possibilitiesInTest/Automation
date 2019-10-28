@@ -20,6 +20,7 @@ public class ConfirmBoxDemo {
 
 		// accept the prompt
 		driver.switchTo().alert().accept();
+						   // or .dismiss()
 	}
 
 }

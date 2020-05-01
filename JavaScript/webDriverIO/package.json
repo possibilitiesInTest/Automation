@@ -9,7 +9,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@wdio/cli": "^6.1.5",
+    "bufferutil": "^4.0.1",
     "mocha": "^7.1.2",
-    "webdriver": "^6.1.4"
+    "selenium-standalone": "^6.17.0",
+    "utf-8-validate": "^5.0.2",
+    "webdriver": "^6.1.4",
+    "webdriverio": "^6.1.5"
   }
 }

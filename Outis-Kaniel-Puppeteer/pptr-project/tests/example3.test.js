@@ -2,15 +2,42 @@ const { expect } = require("chai");
 const puppeteer = require("puppeteer");
 
 describe("My third puppeteer test", () => {
-  it("testing the browser", async function () {
-    const browser = await puppeteer.launch({
-      headless: false,
+  let browser;
+  let page;
+
+  before(async function () {
+    browser = await puppeteer.launch({
+      headless: true,
       slowMo: 10,
       devtools: false,
     });
-    const page = await browser.newPage();
+    page = await browser.newPage();
     await page.setDefaultTimeout(10000);
     await page.setDefaultNavigationTimeout(20000);
+  });
+
+  after(async function () {
+    await browser.close();
+  });
+
+  beforeEach(async function () {
+    // runs before each IT block
+  });
+
+  afterEach(async function () {
+    // runs after each IT block
+  });
+
+  it("testing the browser", async function () {
+    // const browser = await puppeteer.launch({
+    //   headless: false,
+    //   slowMo: 10,
+    //   devtools: false,
+    // });
+    // const page = await browser.newPage();
+
+    // await page.setDefaultTimeout(10000);
+    // await page.setDefaultNavigationTimeout(20000);
 
     await page.goto("https://example.com/");
     await page.waitForXPath("//h1");
@@ -40,6 +67,6 @@ describe("My third puppeteer test", () => {
     // await page.keyboard.press("Enter", { delay: 10 });
     // await page.waitForTimeout(5000);
 
-    await browser.close();
+    // await browser.close();
   });
 });

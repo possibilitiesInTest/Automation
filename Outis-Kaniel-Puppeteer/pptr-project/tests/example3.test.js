@@ -1,7 +1,14 @@
-const { expect } = require("chai");
+const { expect, should } = require("chai");
 const puppeteer = require("puppeteer");
 
-const { click, getCount, getText } = require("../lib/helpers");
+const {
+  click,
+  getCount,
+  getText,
+  typeText,
+  waitForText,
+  shouldNotExist,
+} = require("../lib/helpers");
 
 describe("My third puppeteer test", () => {
   let browser;
@@ -64,10 +71,12 @@ describe("My third puppeteer test", () => {
     await click(page, "#signin_button");
 
     // // await page.waitForTimeout(() => !document.querySelector("#signin_button"));
-    await page.waitForSelector("#signin_button", {
-      hidden: true,
-      timeout: 3000,
-    });
+    // await page.waitForSelector("#signin_button", {
+    //   hidden: true,
+    //   timeout: 3000,
+    // });
+    await page.waitForTimeout(2000);
+    await shouldNotExist(page, "#signin_button");
 
     // await page.waitForSelector("#searchTerm");
     // await page.type("#searchTerm", "Hello World");

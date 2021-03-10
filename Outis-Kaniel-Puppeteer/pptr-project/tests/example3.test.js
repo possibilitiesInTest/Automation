@@ -4,7 +4,7 @@ const puppeteer = require("puppeteer");
 describe("My third puppeteer test", () => {
   it("testing the browser", async function () {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       slowMo: 10,
       devtools: false,
     });
@@ -13,6 +13,7 @@ describe("My third puppeteer test", () => {
     await page.setDefaultNavigationTimeout(20000);
 
     await page.goto("https://example.com/");
+    await page.waitForXPath("//h1");
     const title = await page.title();
     const url = await page.url();
     const text = await page.$eval("h1", (element) => element.textContent);
@@ -24,6 +25,21 @@ describe("My third puppeteer test", () => {
     expect(url).to.include("example.com");
     expect(text).to.be.a("string", "Example Domain");
     expect(count).to.be.equal(2);
+
+    await page.goto("http://zero.webappsecurity.com/index.html");
+    await page.waitForSelector("#signin_button");
+    await page.click("#signin_button");
+    // await page.waitForTimeout(() => !document.querySelector("#signin_button"));
+    await page.waitForSelector("#signin_button", {
+      hidden: true,
+      timeout: 3000,
+    });
+
+    // await page.waitForSelector("#searchTerm");
+    // await page.type("#searchTerm", "Hello World");
+    // await page.keyboard.press("Enter", { delay: 10 });
+    // await page.waitForTimeout(5000);
+
     await browser.close();
   });
 });

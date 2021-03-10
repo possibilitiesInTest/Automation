@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const expect = require("chai").expect;
 
-describe("Login test", () => {
+describe("Feedback test", () => {
   let browser;
   let page;
 

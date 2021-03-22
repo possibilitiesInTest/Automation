@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import org.junit.runner.RunWith;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,22 +17,27 @@ public class stepDefinition {
         
     }
 
-    @When("^User login into applicaiton with username and password$")
-    public void user_login_into_applicaiton_with_username_and_password() throws Throwable {
-        // code to login
+    @When("^User login into application with \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void user_login_into_application_with_something_and_something(String strArg1, String strArg2) throws Throwable {
+          // code to login
         System.out.println("Login to application");
+        System.out.println("Username: " + strArg1);
+        System.out.println("Password: " + strArg2);
     }
 
     @Then("^Homepage is populated$")
     public void homepage_is_populated() throws Throwable {
-        //homepage validation
+        // home page validation
         System.out.println("Populate homepage");
     }
 
-    @And("^Cards are displayed$")
-    public void cards_are_displayed() throws Throwable {
+    @And("^Cards displayed are \"([^\"]*)\"$")
+    public void cards_displayed_are_something(String strArg1) throws Throwable {
         //cards are populated
-        System.out.println("Displays cards");
+        System.out.println("Displays cards: " + strArg1);
     }
+    
+
+    
 
 }

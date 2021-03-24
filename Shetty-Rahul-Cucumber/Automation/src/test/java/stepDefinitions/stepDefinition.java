@@ -57,6 +57,21 @@ public class stepDefinition {
     	System.out.println(username);
     	System.out.println(password);
     }
+    
+    @Given("^Validate the browser$")
+    public void validate_the_browser() throws Throwable {
+        System.out.println("-----validate browser");
+    }
+
+    @When("^Browser is triggered$")
+    public void browser_is_triggered() throws Throwable {
+        System.out.println("-----browser is triggered");
+    }
+
+    @Then("^Check if browser is started$")
+    public void check_if_browser_is_started() throws Throwable {
+        System.out.println("-----browser is started");
+    }
 
     
 

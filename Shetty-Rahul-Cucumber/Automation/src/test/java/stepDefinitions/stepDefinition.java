@@ -51,6 +51,12 @@ public class stepDefinition {
     	System.out.println(obj.get(0).get(4));
 	
     }
+    
+    @When("^User login in to application with (.+) and (.+)$")
+    public void user_login_in_to_application_with_and(String username, String password) throws Throwable {
+    	System.out.println(username);
+    	System.out.println(password);
+    }
 
     
 

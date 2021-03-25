@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = "src/test/java/features/Login.feature",
-		glue="stepDefinitions",
+		glue="stepDefinitions",tags="@SmokeTest or @RegTest", 
 		stepNotifications=true
 		)
 

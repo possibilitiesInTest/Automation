@@ -8,5 +8,16 @@ describe("Testing of EA App", () => {
     cy.get("#UserName").type("admin");
     cy.get("#Password").type("password");
     cy.get(".btn").click();
+
+    cy.contains("Employee List").click();
+
+    // list all td within tr
+    cy.get(".table").find("tr > td");
+    cy.get(".table")
+      .find("tr")
+      .contains("Prasanth")
+      .parent()
+      .contains("Benefits")
+      .click();
   });
 });

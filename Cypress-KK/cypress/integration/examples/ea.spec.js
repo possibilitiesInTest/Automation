@@ -3,7 +3,15 @@
 describe("Testing of EA App", () => {
   it("login application", () => {
     cy.visit("http://eaapp.somee.com/");
-    cy.contains("Login").click();
+
+    // cy.contains("Login").click();
+
+    // Login action w. chai verify link text
+    cy.get("#loginLink").then(($link) => {
+      const linkText = $link.text();
+      expect(linkText).is.eql("Login");
+    });
+
     cy.url().should("include", "/Account/Login");
     cy.get("#UserName").type("admin");
     cy.get("#Password").type("password");

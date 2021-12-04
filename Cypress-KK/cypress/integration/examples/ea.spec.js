@@ -1,19 +1,24 @@
 /// <reference types="cypress" />
 
 describe("Testing of EA App", () => {
-  it.only("Testing of EA App", () => {
+  before("login to application", () => {
     cy.visit("http://www.executeautomation.com/site");
+    cy.fixture("eauser").as("user");
+  });
 
-    // //implicit wait
+  it("Testing of EA App", () => {
+    //implicit wait
     cy.get("jump ti slide 2", { timeout: 6000 }).should(
       "have-class",
       "ls-nav-active"
     );
 
-    // //explicit wait
-    // cy.get("[aria-lavel='jump to slide 2']", { timeout: 50000 }).should(($x) => {
-    //   expect($x).to.have.class("ls-nav-active");
-    // });
+    //explicit wait
+    cy.get("[aria-lavel='jump to slide 2']", { timeout: 50000 }).should(
+      ($x) => {
+        expect($x).to.have.class("ls-nav-active");
+      }
+    );
   });
 
   it("login application", () => {
@@ -42,8 +47,8 @@ describe("Testing of EA App", () => {
     });
 
     cy.url().should("include", "/Account/Login");
-    cy.get("#UserName").type("admin");
-    cy.get("#Password").type("password");
+    cy.get("#UserName").type("user.UserName");
+    cy.get("#Password").type("user.Password");
     cy.get(".btn").click();
 
     cy.contains("Employee List").click();

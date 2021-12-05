@@ -47,9 +47,7 @@ describe("Testing of EA App", () => {
     });
 
     cy.url().should("include", "/Account/Login");
-    cy.get("#UserName").type("user.UserName");
-    cy.get("#Password").type("user.Password");
-    cy.get(".btn").click();
+    cy.login(user.UserName, user.Password);
 
     cy.contains("Employee List").click();
 

@@ -51,5 +51,9 @@ public class Guru_99_Project {
 		driver.findElement(By.name("sub")).click();
 	}
 	
+	public String getCustomerId() {
+		return driver.findElement(By.xpath("//table[@id='customer']/tbody/tr[4]/td[2]")).getText();
+				
+	}
 	
 }

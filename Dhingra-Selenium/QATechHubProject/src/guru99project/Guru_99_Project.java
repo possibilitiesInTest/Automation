@@ -28,4 +28,21 @@ public class Guru_99_Project {
 		
 	}
 	
+	public void addCustomer() {
+		driver.findElement(By.linkText("New Customer")).click();
+		driver.findElement(By.name("name")).sendKeys("Saurabh");
+		driver.findElement(By.xpath("//input[@value='f']")).click();
+		driver.findElement(By.name("dob")).sendKeys("06//21/1999");
+		driver.findElement(By.name("addr")).sendKeys("94234 Gurgaon");
+		driver.findElement(By.name("city")).sendKeys("Guragon");
+		driver.findElement(By.name("state")).sendKeys("Haryana");
+		driver.findElement(By.name("pinno")).sendKeys("1220101");
+		driver.findElement(By.name("telephoneno")).sendKeys("435435435");
+		String emailId = "Test" + System.currentTimeMillis() + "@abc.com";
+		driver.findElement(By.name("emailid")).sendKeys(emailId);
+		
+		driver.findElement(By.name("password")).sendKeys("Pro@123");
+		driver.findElement(By.name("sub")).click();
+	}
+	
 }

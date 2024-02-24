@@ -9,6 +9,7 @@ public class Guru99_Login {
 		
 		guru99.invokeBrowser();
 		guru99.login("mngr554909", "zavasYd");
+		guru99.addCustomer();
 	}
 
 }

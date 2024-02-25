@@ -41,7 +41,6 @@ public class facebook_signup {
 		driver.findElement(By.name("reg_pass__")).sendKeys("Pass1234");
 		
 		
-		
 		Select selDate = new Select(driver.findElement(By.id("day")));
 		Select selMonth = new Select(driver.findElement(By.id("month")));
 		Select selYear = new Select(driver.findElement(By.id("year")));

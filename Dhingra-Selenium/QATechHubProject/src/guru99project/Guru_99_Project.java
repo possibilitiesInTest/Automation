@@ -1,5 +1,7 @@
 package guru99project;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,13 +11,15 @@ public class Guru_99_Project {
 	ChromeDriver driver;
 	String url = "https://demo.guru99.com/v4";
 	
-	
+	@SuppressWarnings("deprecation")
 	public void invokeBrowser() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
 		driver.get(url);
 	}
+	
 	
 	public void login(String username, String password) {
 		

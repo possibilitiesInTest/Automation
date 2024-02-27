@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class AbstractionDemo {
 
@@ -13,7 +14,10 @@ public class AbstractionDemo {
 		// TODO Auto-generated method stub
 		AbstractionDemo ad = new AbstractionDemo();
 		ad.login();
-		ad.logout();
+		ad.gotToAmdinTab();
+		ad.selectUserRole();
+		ad.clickOnSearchButton();
+		// ad.logout();
 		
 	}
 
@@ -29,7 +33,23 @@ public class AbstractionDemo {
 		
 		
 	}
+	 
+	public void gotToAmdinTab() {
+		driver.findElement(By.partialLinkText("Admin")).click();
+		
+	}
 	
+	public void selectUserRole() {
+		
+		driver.manage().window().maximize();
+		String dropdown_xpath = "//[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]";
+		Select dropdown = new Select(driver.findElement(By.xpath(dropdown_xpath)));
+		dropdown.selectByVisibleText("ESS");
+	}
+	
+	public void clickOnSearchButton(){
+		driver.findElement(By.xpath("//button[@type=\"submit\"]"));
+	}
 
 	public void logout() {
 		

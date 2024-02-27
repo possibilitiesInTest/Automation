@@ -37,8 +37,14 @@ public class test_one {
 		//xpath //tagname[@attribute='value']/abc/xyz
 		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		
+		//driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+		// css selectors id--> # class--> .
+
+		// css selectors not unique
+//		driver.findElement(By.cssSelector("input#username")).sendKeys("Admin");
+//		driver.findElement(By.cssSelector("input#password")).sendKeys("admin123");
+		driver.findElement(By.cssSelector("button.oxd-button")).click();
 
 		
 		

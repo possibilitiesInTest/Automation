@@ -1,0 +1,36 @@
+package com.company.tests;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+// from selenium.webdriver.chrome.options import Options;
+
+public class test_one {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// System.setProperty("webdriver.chrome.driver', "local_path");
+		// ChromeOptions chromeOptions = new ChromeOptions();
+		// chromeOptions.setHeadless(true);
+		//WebDriver driver = new ChromeDriver();
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless=new");
+		WebDriver driver = new ChromeDriver(options);
+		
+
+//		options = ChromeOptions();
+//		options.add_argument("--headless=new");
+//		WebDriver driver = webdriver.Chrome(options=options);
+		
+
+		String url = "https://opensource-demo.orangehrmlive.com/";
+		driver.get(url);
+		
+		// driver.manage().window().maximize();
+		String title = driver.getTitle();
+		System.out.println("Title: " + title);
+	}
+
+}

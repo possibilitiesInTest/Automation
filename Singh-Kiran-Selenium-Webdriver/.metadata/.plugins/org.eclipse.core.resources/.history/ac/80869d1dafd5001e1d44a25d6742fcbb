@@ -1,0 +1,43 @@
+package com.company.tests;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+// from selenium.webdriver.chrome.options import Options;
+
+public class test_one {
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// System.setProperty("webdriver.chrome.driver', "local_path");
+		// ChromeOptions chromeOptions = new ChromeOptions();
+		// chromeOptions.setHeadless(true);
+		//WebDriver driver = new ChromeDriver();
+		
+		//ChromeOptions options = new ChromeOptions();
+		//options.addArguments("--headless=new");
+		//WebDriver driver = new ChromeDriver(options);
+		// https://www.selenium.dev/blog/2023/headless-is-going-away/
+		
+		WebDriver driver = new ChromeDriver();
+		String url = "https://opensource-demo.orangehrmlive.com/";
+		driver.get(url);
+		
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.className("orangehrm-login-button")).click();
+		
+		// driver.manage().window().maximize();
+		// get and return title
+		String title = driver.getTitle();
+		System.out.println("Title: " + title);
+		// driver.close();
+	}
+
+}

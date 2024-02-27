@@ -1,0 +1,14 @@
+package com.company.tests;
+
+import org.openqa.selenium.WebDriver;
+
+public class timeout {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	}
+
+}

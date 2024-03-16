@@ -5,12 +5,12 @@ describe('page navigation', () => {
       cy.visit('http://localhost:5173/about');
         cy.get('[data-cy="contact-input-message"]').type('Hellow World!');
         cy.get('[data-cy="contact-input-name"]').type('John Doe');
-        cy.get('[data-cy="contact-input-email"]').type('text@example.com');
         cy.get('[data-cy="contact-btn-submit"]').then((el) => {
             expect(el.attr('disabled')).to.be.undefined;
             expect(el.text()).to.eq('Send Message');
         })
-
+        cy.get('[data-cy="contact-input-email"]').type('text@example.com{enter}');
+        
 
         // cy.get('[data-cy="contact-btn-submit"]')
         //     .contains('Send Message')

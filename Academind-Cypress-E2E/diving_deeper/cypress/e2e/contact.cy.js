@@ -30,4 +30,42 @@ describe('page navigation', () => {
         cy.get('@submitBtn').contains('Sending...');
         cy.get('@submitBtn').should('have.attr', 'disabled');  
     });
+
+    it('should validate the form input', () => {
+        cy.visit('http://localhost:5173/about');
+        cy.get('[data-cy="contact-btn-submit"]').as('submitBtn');
+        cy.get('@submitBtn').click();
+        cy.get('@submitBtn').then(el => {
+            expect(el).to.not.have.attr('disabled');
+            expect(el.text()).to.not.equal('Sending...');
+        });
+        cy.get('@submitBtn').contains('Send Message');
+        cy.get('[data-cy="contact-input-message"]').blur();
+        cy.get('[data-cy="contact-input-message"]')
+            .parent()
+            .should('have.attr', 'class').and('match', /invalid/);
+
+
+            // fails in npx cypres run
+            // .then((el) => {
+            //     expect(el.attr('class')).to.contains('invalid');
+            // })
+        
+        cy.get('[data-cy="contact-input-name"]').focus().blur();
+        cy.get('[data-cy="contact-input-name"]')
+            .parent()
+            .should('have.attr', 'class').and('match', /invalid/);
+            // .then((el) => {
+            //     expect(el.attr('class')).to.contains('invalid');
+            // })
+
+        cy.get('[data-cy="contact-input-email"]').focus().blur();
+        cy.get('[data-cy="contact-input-email"]')
+            .parent()
+            .should('have.attr', 'class').and('match', /invalid/);
+            // .then((el) => {
+            //     expect(el.attr('class')).to.contains('invalid');
+            // })
+
+    });
 });

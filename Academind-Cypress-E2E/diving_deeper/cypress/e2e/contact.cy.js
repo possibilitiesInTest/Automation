@@ -6,9 +6,15 @@ describe('page navigation', () => {
         cy.get('[data-cy="contact-input-message"]').type('Hellow World!');
         cy.get('[data-cy="contact-input-name"]').type('John Doe');
         cy.get('[data-cy="contact-input-email"]').type('text@example.com');
-        cy.get('[data-cy="contact-btn-submit"]')
-            .contains('Send Message')
-            .and('not.have.attr', 'disabled');
+        cy.get('[data-cy="contact-btn-submit"]').then((el) => {
+            expect(el.attr('disabled')).to.be.undefined;
+            expect(el.text()).to.eq('Send Message');
+        })
+
+
+        // cy.get('[data-cy="contact-btn-submit"]')
+        //     .contains('Send Message')
+        //     .and('not.have.attr', 'disabled');
 
         /*
         // btn const works, but is not recommended

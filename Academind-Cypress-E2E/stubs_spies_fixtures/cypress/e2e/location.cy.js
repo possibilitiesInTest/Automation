@@ -34,4 +34,15 @@ describe('share location', () => {
     cy.get('[data-cy="share-loc-btn"]').click();
     cy.get('@saveToClipboard').should('have.been.called')
   });
+
+  it('should sdare a location URL', () => {
+    cy.get('[data-cy="name-input"]').type('John Doe');
+    cy.get('[data-cy="get-loc-btn"]').click();
+    cy.get('[data-cy="share-loc-btn').click();
+    cy.get('@saveToClipboard').should('have.been.called');
+    cy.get('@saveToClipboard')
+      .should('have.been.calledWithMatch', 
+      new RegExp(`${37.5}.*${48.01}.*${encodeURI('John Doe')}`)
+    )      
+  });
 });
